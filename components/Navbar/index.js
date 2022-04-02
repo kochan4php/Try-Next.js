@@ -14,6 +14,7 @@ import Link from "next/link";
 const routes = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
+  { href: "/users", label: "Users" },
   { href: "/posts", label: "Posts" },
 ];
 
@@ -31,7 +32,7 @@ const Navbar = () => {
   return (
     <AppBar position="static" color="secondary" sx={{ boxShadow: "none" }}>
       <Container maxWidth="xl">
-        <Toolbar disableGutters>
+        <Toolbar disableGutters sx={{ justifyContent: "space-between" }}>
           <Typography
             variant="h6"
             noWrap
@@ -101,7 +102,13 @@ const Navbar = () => {
               <Link href={page.href} passHref key={index}>
                 <Button
                   onClick={handleCloseNavMenu}
-                  sx={{ color: "white", display: "block" }}
+                  sx={{
+                    color: "white",
+                    display: "block",
+                    ml: 2,
+                    textTransform: "none",
+                    fontSize: "1.1rem",
+                  }}
                 >
                   {page.label}
                 </Button>
@@ -113,4 +120,5 @@ const Navbar = () => {
     </AppBar>
   );
 };
+
 export default Navbar;

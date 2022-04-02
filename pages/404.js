@@ -1,22 +1,20 @@
-import { Component } from "react";
-import { withRouter } from "next/router";
+import { useEffect } from "react";
+import { useRouter } from "next/router";
 import MainLayout from "../components/MainLayout";
 
-class NotFoundPage extends Component {
-  componentDidMount() {
+export default function NotFoundPage() {
+  const router = useRouter();
+
+  useEffect(() => {
     setTimeout(() => {
-      this.props.router.push("/");
-    }, 2000);
-  }
+      router.push("/");
+    }, 3000);
+  }, []);
 
-  render() {
-    return (
-      <MainLayout title="Not Found Page">
-        <h1>404</h1>
-        <h1>Not Found</h1>
-      </MainLayout>
-    );
-  }
+  return (
+    <MainLayout title="Not Found Page">
+      <h1>404</h1>
+      <h1>Not Found</h1>
+    </MainLayout>
+  );
 }
-
-export default withRouter(NotFoundPage);
