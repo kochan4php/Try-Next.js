@@ -9,43 +9,35 @@ export default function PostDetail({ post }) {
     router.push("/posts");
   };
 
-  if (router.isFallback) {
-    return (
-      <Typography variant="h4" component="div" sx={{ my: 4 }} align="center">
-        Loading...
-      </Typography>
-    );
-  } else {
-    return (
-      <MainLayout title="User Detail">
-        <Grid container spacing={3}>
-          <Grid item xs={12}>
-            <Button variant="contained" color="warning" onClick={handleClick}>
-              &laquo;&nbsp;Back
-            </Button>
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <Card
-              sx={{
-                minHeight: "200px",
-                boxShadow: "5px 5px 15px rgba(0,0,0,0.3)",
-                border: "1px solid rgba(0,0,0,0.2)",
-              }}
-            >
-              <CardContent>
-                <Typography variant="h5" component="div" sx={{ mb: 3 }}>
-                  {post.id}.&nbsp;{post.title}
-                </Typography>
-                <Typography variant="body" component="div">
-                  {post.body}
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
+  return (
+    <MainLayout title="User Detail">
+      <Grid container spacing={3}>
+        <Grid item xs={12}>
+          <Button variant="contained" color="warning" onClick={handleClick}>
+            &laquo;&nbsp;Back
+          </Button>
         </Grid>
-      </MainLayout>
-    );
-  }
+        <Grid item xs={12} md={6}>
+          <Card
+            sx={{
+              minHeight: "200px",
+              boxShadow: "5px 5px 15px rgba(0,0,0,0.3)",
+              border: "1px solid rgba(0,0,0,0.2)",
+            }}
+          >
+            <CardContent>
+              <Typography variant="h5" component="div" sx={{ mb: 3 }}>
+                {post.id}.&nbsp;{post.title}
+              </Typography>
+              <Typography variant="body" component="div">
+                {post.body}
+              </Typography>
+            </CardContent>
+          </Card>
+        </Grid>
+      </Grid>
+    </MainLayout>
+  );
 }
 
 export const getStaticPaths = async () => {
@@ -60,7 +52,7 @@ export const getStaticPaths = async () => {
 
   return {
     paths,
-    fallback: true,
+    fallback: false,
   };
 };
 

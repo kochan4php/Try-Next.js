@@ -16,6 +16,7 @@ const routes = [
   { href: "/about", label: "About" },
   { href: "/users", label: "Users" },
   { href: "/posts", label: "Posts" },
+  { href: "/products", label: "Products" },
 ];
 
 const Navbar = () => {
